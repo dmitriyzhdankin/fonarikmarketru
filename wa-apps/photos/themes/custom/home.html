@@ -1,0 +1,14 @@
+{* homepage template *}
+
+{if !empty($photos)}
+
+    {include file='view-mixed.html'}
+    
+{else}
+
+    <div class="welcome">
+        <h1>[`Welcome to your new photo gallery!`]</h1>
+        <p>{sprintf('[`Start by <a href="%s">uploading photos</a> in your gallery backend.`]', $wa_backend_url|cat:'photos/')}</p>
+    </div>
+            
+{/if}

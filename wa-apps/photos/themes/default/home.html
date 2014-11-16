@@ -1,0 +1,17 @@
+{* homepage template *}
+
+{if !empty($photos)}
+
+    {include file='photos-thumbs.html'}
+    
+{else}
+
+    <div class="welcome">
+        <h1>[`Welcome to your new photo gallery!`]</h1>
+        <p>{sprintf('[`Start by <a href="%s">uploading photos</a> in your gallery backend.`]', $wa_backend_url|cat:'photos/')}</p>
+    </div>
+    <style>
+        .page-content.with-sidebar { margin-left: 0; border-left: 0; }
+    </style>
+            
+{/if}

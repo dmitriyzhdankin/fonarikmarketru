@@ -1,2 +1,5 @@
-## Directory-based project format:
-.idea/
+wa-cache
+wa-data
+wa-log
+.fw_compatible
+
