@@ -251,6 +251,10 @@ msgstr ""
 msgid "Importing categories..."
 msgstr ""
 
+#: wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:75
+msgid "Importing currencies..."
+msgstr ""
+
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:32
 msgid "Updating category hierarchy..."
 msgstr ""
@@ -459,4 +463,36 @@ msgid ""
 "eproduct files"
 msgstr ""
 
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:116
+msgid "%d currency"
+msgid_plural "%d currencies"
+msgstr[0] ""
+msgstr[1] ""
 
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:41
+msgid "Feed URL"
+msgstr ""
+
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:42
+msgid "Specify YML feed URL."
+msgstr ""
+
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:106
+msgid "Empty URL for YML"
+msgstr ""
+
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:114
+msgid "Error while upload YML file: %s"
+msgstr ""
+
+#: /wa-apps/shop/plugins/migrate/templates/actions/backend/BackendSetup.html:42
+msgid "Connect"
+msgstr ""
+
+#: /wa-apps/shop/plugins/migrate/lib/shopMigrate.plugin.php:19
+msgid "YML feed file"
+msgstr ""
+
+#: /wa-apps/shop/plugins/migrate/lib/shopMigrate.plugin.php:21
+msgid "Yandex.Market"
+msgstr ""

@@ -83,7 +83,9 @@ abstract class shopMigrateTransport implements Serializable
      * @return string[string]
      */
     abstract public function count();
+
     abstract public function getStageName($stage);
+
     abstract public function getStageReport($stage, $data);
 
     private static function getLogLevelName($level)
@@ -162,7 +164,7 @@ abstract class shopMigrateTransport implements Serializable
         if ($this->getConfig()->isDebug()) {
             $debug_levels = array(
                 self::LOG_WARNING => _wp('Errors only'),
-                self::LOG_DEBUG => _wp('Debug (detailed log)'),
+                self::LOG_DEBUG   => _wp('Debug (detailed log)'),
             );
             $option = array(
                 'value'        => self::LOG_WARNING,
@@ -231,13 +233,19 @@ abstract class shopMigrateTransport implements Serializable
                     if (!isset($properties['class'])) {
                         $properties['class'] = array();
                     }
-                    $properties['class'] = array_merge((array) $properties['class'], array('error'));
+                    $properties['class'] = array_merge((array)$properties['class'], array('error'));
                     if (!isset($properties['description'])) {
                         $properties['description'] = '</span><span class="errormsg">';
                     } else {
                         $properties['description'] .= '</span><span class="errormsg">';
                     }
                     $properties['description'] .= $errors[$field];
+                } elseif (!empty($properties['valid']) && !isset($properties['control_wrapper'])) {
+                    $properties['control_wrapper'] = '
+<div class="field">
+%s
+<div class="value no-shift">%s&nbsp;<i class="icon16 yes"></i>%s</div>
+</div>';
                 }
                 $controls[$field] = waHtmlControl::getControl($properties['control_type'], $field, array_merge($params, $properties));
             }

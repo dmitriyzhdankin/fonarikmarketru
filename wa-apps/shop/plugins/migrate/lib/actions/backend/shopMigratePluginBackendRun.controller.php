@@ -143,6 +143,7 @@ class shopMigratePluginBackendRunController extends waLongActionController
 
         $stage_num = 0;
         $stage_count = count($this->data['current']);
+
         foreach ($this->data['current'] as $stage => $current) {
             if ($current < $this->data['count'][$stage]) {
                 $response['stage'] = $stage;

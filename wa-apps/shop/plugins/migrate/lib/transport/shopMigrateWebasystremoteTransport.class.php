@@ -32,9 +32,9 @@ class shopMigrateWebasystremoteTransport extends shopMigrateWebasystTransport
     {
         try {
             $this->query('1');
-            $this->addOption('url', array('readonly' => true));
-            $this->addOption('login', array('readonly' => true));
-            $this->addOption('password', array('readonly' => true));
+            $this->addOption('url', array('readonly' => true, 'valid' => true,));
+            $this->addOption('login', array('readonly' => true, 'valid' => true,));
+            $this->addOption('password', array('readonly' => true, 'valid' => true,));
         } catch (Exception $ex) {
             $errors['url'] = $errors['login'] = $errors['password'] = $ex->getMessage();
             $result = false;

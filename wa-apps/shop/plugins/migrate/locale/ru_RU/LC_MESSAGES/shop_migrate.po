@@ -8,10 +8,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)"
+">=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: .\n"
 "X-Generator: Poedit 1.5.5\n"
+"Language: ru_RU\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: .\n"
 
@@ -32,8 +34,12 @@ msgid "Import data"
 msgstr "Импортировать данные"
 
 #: /wa-apps/shop/plugins/migrate/templates/actions/backend/BackendSetup.html:55
-msgid "Please do not close your browser window and do not leave this page until the entire migration process is finished."
-msgstr "Пожалуйста, не закрывайте браузер и не покидайте эту страницу, пока процесс переноса данных не будет полностью завершен."
+msgid ""
+"Please do not close your browser window and do not leave this page until the "
+"entire migration process is finished."
+msgstr ""
+"Пожалуйста, не закрывайте браузер и не покидайте эту страницу, пока процесс "
+"переноса данных не будет полностью завершен."
 
 #: /wa-apps/shop/plugins/migrate/js/migrate.js:11
 msgid "Loading..."
@@ -88,8 +94,27 @@ msgid "Data access URL"
 msgstr "URL доступа к данным"
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystremoteTransport.class.php:12
-msgid "For WebAsyst <strong>PHP software</strong> installed on your server:<br /> 1. Download data access script <a href=\"http://www.webasyst.com/wa-data/public/site/downloads/old-webasyst-export-php.zip\">export.php</a>, and upload it to your Webasyst published/ folder via FTP.<br /> 2. Enter the complete URL to this file, which should look like this: <strong>http://YOUR_WEBASYST_ROOT_URL/published/export.php</strong><br /><br /> For <strong>hosted accounts</strong>: get your Secure Data Access URL in your ACCOUNT.webasyst.net backend’s “Account (link in the top right corner) &gt; System Settings” page."
-msgstr "Для <strong>PHP-скриптов</strong> WebAsyst, установленных на вашем сервере:<br /> 1. Скачайте скрипт доступа к данным <a href=\"http://www.webasyst.com/wa-data/public/site/downloads/old-webasyst-export-php.zip\">export.php</a> и загрузите его по FTP на  сервер с установленными скриптами в директорию published/.<br /> 2. Введите полный URL к этому файлу, который должен иметь следующий вид: <strong>http://YOUR_WEBASYST_ROOT_URL/published/export.php</strong><br /><br /> Для аккаунтов <strong>веб-сервисов</strong>: защищенный URL доступа к данным вашего аккаунта вы можете получить в бекенде вашего аккаунта ACCOUNT.webasyst.net в разделе «Аккаунт (ссылка в верхнем правом углу) &gt; Системные настройки»."
+msgid ""
+"For WebAsyst <strong>PHP software</strong> installed on your server:<br /> "
+"1. Download data access script <a href=\"http://www.webasyst.com/wa-data/"
+"public/site/downloads/old-webasyst-export-php.zip\">export.php</a>, and "
+"upload it to your Webasyst published/ folder via FTP.<br /> 2. Enter the "
+"complete URL to this file, which should look like this: <strong>http://"
+"YOUR_WEBASYST_ROOT_URL/published/export.php</strong><br /><br /> For "
+"<strong>hosted accounts</strong>: get your Secure Data Access URL in your "
+"ACCOUNT.webasyst.net backend’s “Account (link in the top right corner) &gt; "
+"System Settings” page."
+msgstr ""
+"Для <strong>PHP-скриптов</strong> WebAsyst, установленных на вашем сервере:"
+"<br /> 1. Скачайте скрипт доступа к данным <a href=\"http://www.webasyst.com/"
+"wa-data/public/site/downloads/old-webasyst-export-php.zip\">export.php</a> и "
+"загрузите его по FTP на  сервер с установленными скриптами в директорию "
+"published/.<br /> 2. Введите полный URL к этому файлу, который должен иметь "
+"следующий вид: <strong>http://YOUR_WEBASYST_ROOT_URL/published/export.php</"
+"strong><br /><br /> Для аккаунтов <strong>веб-сервисов</strong>: защищенный "
+"URL доступа к данным вашего аккаунта вы можете получить в бекенде вашего "
+"аккаунта ACCOUNT.webasyst.net в разделе «Аккаунт (ссылка в верхнем правом "
+"углу) &gt; Системные настройки»."
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystremoteTransport.class.php:17
 msgid "Login"
@@ -167,6 +192,10 @@ msgstr "Импорт страниц..."
 msgid "Importing customers..."
 msgstr "Импорт покупателей..."
 
+#: wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:75
+msgid "Importing currencies..."
+msgstr "Импорт валют..."
+
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:33
 msgid "Importing product custom options..."
 msgstr "Импорт дополнительных характеристик товаров..."
@@ -184,8 +213,10 @@ msgid "Importing product reviews..."
 msgstr "Импорт отзывов о товарах..."
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:45
-msgid "Importing product images (this is the longest part, please be patient)..."
-msgstr "Импорт изображений товаров (самая длинная часть, подождите, пожалуйста)…"
+msgid ""
+"Importing product images (this is the longest part, please be patient)..."
+msgstr ""
+"Импорт изображений товаров (самая длинная часть, подождите, пожалуйста)…"
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:48
 msgid "Creating product thumbnails..."
@@ -200,8 +231,14 @@ msgid "Source lanuage"
 msgstr "Исходный язык"
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:108
-msgid "Shop-Script 5 allows storing product info and database content in one language. Select primary language of your WebAsyst Shop-Script-based online store."
-msgstr "Shop-Script 5 позволяет хранить информацию о товарах и содержимое базы данных на одном языке. Выберите основной язык вашего магазина на базе WebAsyst Shop-Script."
+msgid ""
+"Shop-Script 5 allows storing product info and database content in one "
+"language. Select primary language of your WebAsyst Shop-Script-based online "
+"store."
+msgstr ""
+"Shop-Script 5 позволяет хранить информацию о товарах и содержимое базы "
+"данных на одном языке. Выберите основной язык вашего магазина на базе "
+"WebAsyst Shop-Script."
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:135
 msgid "Currency"
@@ -248,16 +285,27 @@ msgid "Service"
 msgstr "Услуга"
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:1324
-msgid "Services feature allows customers to customize product when adding it to shopping cart (either select or unselect particular service with the product)"
-msgstr "Услуги позволяют покупателям изменять ценность приобретаемого товара при добавлении его в корзину (выбрав либо отменив выбор какой-либо услуги, предлагаемой вместе с товаром)"
+msgid ""
+"Services feature allows customers to customize product when adding it to "
+"shopping cart (either select or unselect particular service with the product)"
+msgstr ""
+"Услуги позволяют покупателям изменять ценность приобретаемого товара при "
+"добавлении его в корзину (выбрав либо отменив выбор какой-либо услуги, "
+"предлагаемой вместе с товаром)"
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:1328
 msgid "SKU"
 msgstr "Артикул"
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:1329
-msgid "SKUs feature allows tracking inventory by multiple stocks. Multiple product SKUs (purchase options) will be created according to this custom option value set"
-msgstr "Артикулы (SKU, вариации товаров) позволяют отслеживать складские остатки по нескольким складам. В соответствии с этим набором значений дополнительных характеристик можно создавать множественные вариации товаров."
+msgid ""
+"SKUs feature allows tracking inventory by multiple stocks. Multiple product "
+"SKUs (purchase options) will be created according to this custom option "
+"value set"
+msgstr ""
+"Артикулы (SKU, вариации товаров) позволяют отслеживать складские остатки по "
+"нескольким складам. В соответствии с этим набором значений дополнительных "
+"характеристик можно создавать множественные вариации товаров."
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:1410
 msgid "Add as new feature"
@@ -296,8 +344,12 @@ msgid "Preserve IDs"
 msgstr "Сохранять ID"
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:129
-msgid "If product (or category) with a particular ID already exists in your new store, delete it and replace with the imported data."
-msgstr "Если товар (или категория) с заданным ID уже существует, удалить его (ее) и импортировать заново"
+msgid ""
+"If product (or category) with a particular ID already exists in your new "
+"store, delete it and replace with the imported data."
+msgstr ""
+"Если товар (или категория) с заданным ID уже существует, удалить его (ее) и "
+"импортировать заново"
 
 #: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateWebasystTransport.class.php:64
 msgid "Importing coupons..."
@@ -435,6 +487,43 @@ msgid "Source weight unit: <strong>%s</strong>"
 msgstr "Исходная единица веса: <strong>%s</strong>."
 
 #: /wa-apps/shop/plugins/migrate/lib/shopMigrate.plugin.php:9
-msgid "Migrate aux pages, categories, products with params, features, images and eproduct files"
-msgstr "Перенос информационных страниц, товаров, характеристик, изображений и категорий товаров"
+msgid ""
+"Migrate aux pages, categories, products with params, features, images and "
+"eproduct files"
+msgstr ""
+"Перенос информационных страниц, товаров, характеристик, изображений и "
+"категорий товаров"
 
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:116
+msgid "%d currency"
+msgid_plural "%d currencies"
+msgstr[0] "%d валюта"
+msgstr[1] "%d валюты"
+msgstr[2] "%d валют"
+
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:41
+msgid "Feed URL"
+msgstr "Адрес YML-файла"
+
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:42
+msgid "Specify YML feed URL."
+msgstr "Укажите URL файла данных в формате YML"
+
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:106
+msgid "Empty URL for YML"
+msgstr "Не указан URL"
+
+#: /wa-apps/shop/plugins/migrate/lib/transport/shopMigrateYmlTransport.class.php:114
+msgid "Error while upload YML file: %s"
+msgstr "Произошла ошибка при загрузке YML-файла: %s"
+
+msgid "Connect"
+msgstr "Загрузить"
+
+#: /wa-apps/shop/plugins/migrate/lib/shopMigrate.plugin.php:19
+msgid "YML feed file"
+msgstr "YML-файл"
+
+#: /wa-apps/shop/plugins/migrate/lib/shopMigrate.plugin.php:21
+msgid "Yandex.Market"
+msgstr "Яндекс.Маркет"

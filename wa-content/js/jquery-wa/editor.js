@@ -37,7 +37,6 @@ jQuery.fn.waEditor = function (options) {
         options = $.extend({
             //boldTag: 'b',
             //italicTag: 'i',
-            editorOnLoadFocus: true,
             deniedTags: false,
             minHeight: 300,
             buttonSource: false,
@@ -117,12 +116,9 @@ jQuery.fn.waEditor = function (options) {
         editor.setOption("minLines", 2);
         editor.setOption("maxLines", 10000);
         editor.setAutoScrollEditorIntoView(true);
-        
-        if (options['editorOnLoadFocus'])
-        {
-          editor.focus();
-          editor.navigateTo(0, 0);
-        }
+
+        editor.focus();
+        editor.navigateTo(0, 0);
 
         editor.commands.addCommands([{
             name: 'waSave',
@@ -218,23 +214,17 @@ jQuery.fn.waEditor = function (options) {
             wrapper.find('.html').parent().addClass('selected');
             wrapper.find('.redactor_box').hide();
             wrapper.find('.ace').show();
-            if (options['editorOnLoadFocus'])
-            {
-                editor.focus();
-                editor.navigateTo(0, 0);
-            }
+            editor.focus();
+            editor.navigateTo(0, 0);
         } else {
             wrapper.find('.ace').hide();
-            if (options['editorOnLoadFocus'])
-            {
-                if (!options['iframe']) {
+            if (!options['iframe']) {
+                self.redactor('focus');
+            }
+            else {
+                setTimeout(function(){
                     self.redactor('focus');
-                }
-                else {
-                    setTimeout(function(){
-                        self.redactor('focus');
-                    }, 100);
-                }
+                }, 100);
             }
         }
     });

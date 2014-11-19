@@ -146,7 +146,6 @@ class waAutoload
         'waFileCache'              => 'cache/waFileCache.class.php',
         'waMemcachedCacheAdapter'  => 'cache/adapters/waMemcachedCacheAdapter.class.php',
         'waFileCacheAdapter'       => 'cache/adapters/waFileCacheAdapter.class.php',
-        'waXcacheCacheAdapter'     => 'cache/adapters/waXcacheCacheAdapter.class.php',
         'waRuntimeCache'           => 'cache/waRuntimeCache.class.php',
         'waSerializeCache'         => 'cache/waSerializeCache.class.php',
         'waSystemCache'            => 'cache/waSystemCache.class.php',
@@ -243,7 +242,6 @@ class waAutoload
         'waArrayObjectDiff'        => 'util/waArrayObjectDiff.class.php',
         'waCSV'                    => 'util/waCSV.class.php',
         'waHtmlControl'            => 'util/waHtmlControl.class.php',
-        'waString'                 => 'util/waString.class.php',
         'waUtils'                  => 'util/waUtils.class.php',
 
         'waEmailValidator'         => 'validator/waEmailValidator.class.php',

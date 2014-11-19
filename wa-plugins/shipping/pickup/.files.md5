@@ -1,0 +1,13 @@
+667935a416553f1cec6b2fb86b599999 *img/pickup.png
+838038b016c33de0630f3824c48f1c7b *img/pickup16.png
+a285da79a1cf95556e4eb1fd40059097 *lib/.htaccess
+85dcf7a250039bd59e57cb169bef778b *lib/config/build.php
+3eff3fdf670a40a5e2e4fb806f420669 *lib/config/plugin.php
+7c3869275964ed0b3c76a9a14d92fd49 *lib/config/settings.php
+641612e072f2d7234e7e9aec2a76ee58 *lib/pickupShipping.class.php
+a1751e1f10a3b96b05d0401c97e72008 *locale/.htaccess
+4b42defc7662aca8bae2d2e4ffb7978d *locale/en_US/LC_MESSAGES/shipping_pickup.po
+b5e45246f3fbbc11d7b29492f4eb0d05 *locale/ru_RU/LC_MESSAGES/shipping_pickup.mo
+f8f2dc689f89868af1e1b0b89fd84c52 *locale/ru_RU/LC_MESSAGES/shipping_pickup.po
+a1751e1f10a3b96b05d0401c97e72008 *templates/.htaccess
+5ba16b7e082c1c79e2655d6256a24deb *templates/settings.html

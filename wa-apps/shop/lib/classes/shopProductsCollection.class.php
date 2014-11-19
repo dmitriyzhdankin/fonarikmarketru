@@ -1082,18 +1082,17 @@ class shopProductsCollection
 
     private function workupProducts(&$products = array(), $escape)
     {
-        // Names of fields that must be converted to float values
-        $float = array(
-            'min_price',
-            'max_price',
-            'total_sales',
-            'base_price_selectable',
-            'rating',
-            'price',
-            'compare_price',
-        );
-
         foreach ($products as & $p) {
+            $float = array(
+                'min_price',
+                'max_price',
+                'total_sales',
+                'base_price_selectable',
+                'rating',
+                'price',
+                'compare_price',
+
+            );
             foreach ($float as $field) {
                 if (isset($p[$field])) {
                     $p[$field] = (float)$p[$field];

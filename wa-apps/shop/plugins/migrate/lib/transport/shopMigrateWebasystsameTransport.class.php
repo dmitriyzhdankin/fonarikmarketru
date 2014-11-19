@@ -26,7 +26,7 @@ class shopMigrateWebasystsameTransport extends shopMigrateWebasystTransport
     {
         try {
             $this->getSourceModel();
-            $this->addOption('path', array('readonly' => true));
+            $this->addOption('path', array('readonly' => true, 'valid' => true,));
         } catch (waException $ex) {
             $result = false;
             $errors['path'] = $ex->getMessage();

@@ -5,9 +5,12 @@ class shopWatermarkPluginImageDeleteController extends waJsonController
     public function execute()
     {
         $plugin = wa()->getPlugin('watermark');
-        $this->response =
-            $plugin->saveSettings(array(
-                'delete_image' => 1
-            ));
+        /**
+         * @var shopWatermarkPlugin $plugin
+         */
+        $settings = array(
+            'delete_image' => 1
+        );
+        $this->response = $plugin->saveSettings($settings);
     }
 }

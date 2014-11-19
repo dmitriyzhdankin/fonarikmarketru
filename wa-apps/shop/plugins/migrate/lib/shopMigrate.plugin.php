@@ -1,4 +1,5 @@
 <?php
+
 class shopMigratePlugin extends shopPlugin
 {
     public function getTransports()
@@ -14,7 +15,20 @@ class shopMigratePlugin extends shopPlugin
                 'description' => '',
                 'platform'    => 'Webasyst',
             ),
+            'yml'            => array(
+                'name'        => _wp('YML feed file'),
+                'description' => '',
+                'platform'    => _wp('Yandex.Market'),
+                'locale'      => array(
+                    'ru_RU',
+                )
+            ),
         );
+    }
+
+    public function backendWelcomeHandler()
+    {
+
     }
 
 }

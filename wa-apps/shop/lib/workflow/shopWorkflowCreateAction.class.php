@@ -65,6 +65,7 @@ class shopWorkflowCreateAction extends shopWorkflowAction
         }
 
         $subtotal = 0;
+        $currency = wa()->getConfig()->getCurrency(false);
         foreach ($data['items'] as &$item) {
             if ($currency != $item['currency']) {
                 $item['price'] = shop_currency($item['price'], $item['currency'], null, false);
@@ -176,11 +177,6 @@ class shopWorkflowCreateAction extends shopWorkflowAction
         $order_log_model = new shopOrderLogModel();
         $order_log_model->add($data);
 
-        /**
-         * @event order_action.create
-         */
-        wa('shop')->event('order_action.create', $data);
-
         $order_model = new shopOrderModel();
         $order = $order_model->getById($order_id);
         $params_model = new shopOrderParamsModel();
@@ -192,6 +188,11 @@ class shopWorkflowCreateAction extends shopWorkflowAction
             'status' => $this->getWorkflow()->getStateById($data['after_state_id'])->getName(),
             'action_data' => $data
         ));
+
+        /**
+         * @event order_action.create
+         */
+        wa('shop')->event('order_action.create', $data);
 
         // Update stock count, but take into account 'update_stock_count_on_create_order'-setting
         $app_settings_model = new waAppSettingsModel();
