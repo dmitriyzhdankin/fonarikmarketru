@@ -1,0 +1,26 @@
+<div class="block">
+    <form action="?plugin=custommenu&action=list" method="POST" id="plugin-custommenu-form" >
+
+    {$wa->csrf()}
+    <h6 class="heading">[`Menu list`]</h6>
+    <div class=menu-list">
+    {foreach $menus as $menu}
+        <div class="menu-box">
+            <div class="menu-id">
+                <input type="text" name="menu[{$menu.menu_id}][name]" value="{$menu.name|escape}" />
+                Delete<input type="checkbox" name="menu[{$menu.menu_id}][delete]" />
+                <a href="?plugin=custommenu&action=editmenu&id={$menu.menu_id}">Edit menu</a>
+            </div>
+        </div>
+    {/foreach}
+        <div class="menu-box">
+            <div class="menu-id">Add New Menu</div>
+            <div class="menu-id"><input type="text" name="menu[new][name]" value="" /></div>
+        </div>
+    </div>
+
+          <input type="submit" class="button green" value="[`Save`]" />
+
+    </form>
+    <div class="clear-left"></div>
+</div>

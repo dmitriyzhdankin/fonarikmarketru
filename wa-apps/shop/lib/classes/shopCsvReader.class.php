@@ -719,7 +719,8 @@ HTML;
             } else {
                 $header['title'] = '&nbsp;';
             }
-            $rows[1] .= '<td class="s-csv-header">'.$header['title'].'</td>';
+            $row_title = substr($header['title'],0,strpos($header['title'],'_|_') ? strpos($header['title'],'_|_') : strlen($header['title']) );
+            $rows[1] .= '<td class="s-csv-header">'.$row_title.'</td>';
             if ($header['primary']) {
                 $params_target = $params;
                 self::findSimilar($params_target, $header['title'], array('similar' => false));
@@ -1004,10 +1005,19 @@ HTML;
             if ($max < 90) {
                 unset($selected);
                 $max = 0;
+                if( ($pos = strpos($target,'_|_')) !== false ) {
+                    $target = substr($target,$pos+3);
+                    $options['feature'] = true;
+                }
                 $to = mb_strtolower($target);
                 foreach ($params['options'] as & $column) {
                     if ($column['like'] < 90) {
                         $from = mb_strtolower($column['title']);
+                        if( isset($options['feature']) ) {
+                            $from = mb_strtolower(isset($column['description']) ? $column['description'] : $column['title']);
+                            } else {
+                            $from = mb_strtolower($column['title']);
+                        }
                         if ($from && $to && ((strpos($from, $to) === 0) || (strpos($to, $from) === 0))) {
                             $l_from = mb_strlen($from);
                             $l_to = mb_strlen($to);
@@ -1015,6 +1025,10 @@ HTML;
                             if ($column['like'] > $max) {
                                 $selected =& $column;
                                 $max = $column['like'];
+                                if( !isset($options['feature']) || $column['like'] == 100 ) {
+                                    $selected =& $column;
+                                    $max = $column['like'];
+                                }
                             }
                         }
                     }

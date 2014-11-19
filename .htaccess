@@ -14,6 +14,9 @@ AddDefaultCharset utf-8
     # Uncomment the following line, if you are having trouble
     #RewriteBase /
 
+    RewriteCond %{QUERY_STRING} ^page=1(&|$) [NC]
+    RewriteRule ^(.*) /$1? [R=301,L] 
+    
     RewriteCond %{REQUEST_URI} !\.(js|css|jpg|jpeg|gif|png)$ [or]
     RewriteCond %{REQUEST_URI} apple-touch-icon\.png$
     RewriteCond %{REQUEST_FILENAME} !-f
@@ -25,4 +28,8 @@ AddDefaultCharset utf-8
     <FilesMatch "\.(jpg|jpeg|png|gif|js|css)$">
 	Header set Cache-Control "max-age=3153600, public"
     </FilesMatch>
+</ifModule>
+
+<IfModule mod_php5.c>
+    php_value date.timezone "Europe/Kiev"
 </ifModule>

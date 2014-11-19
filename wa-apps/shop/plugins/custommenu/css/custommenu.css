@@ -1,0 +1,365 @@
+/*body, ul, li {
+	font-size:14px; 
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:21px;
+	text-align:left;
+}
+*/
+/*.custom-menu {
+	list-style:none;
+	width:940px;
+	margin:30px auto 0px auto;
+	height:43px;
+	padding:0px 20px 0px 20px;
+
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+
+	background: #014464;
+	background: -moz-linear-gradient(top, #0272a7, #013953);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0272a7), to(#013953));
+	
+	border: 1px solid #002232;
+
+	-moz-box-shadow:inset 0px 0px 1px #edf9ff;
+	-webkit-box-shadow:inset 0px 0px 1px #edf9ff;
+	box-shadow:inset 0px 0px 1px #edf9ff;
+}*/
+
+.custom-menu li {
+    float:left;
+    display:block;
+    text-align:center;
+    position:relative;
+    /*	padding: 4px 10px 4px 10px;
+        margin-right:30px;
+        margin-top:7px; */
+    border:none;
+}
+
+.custom-menu li:hover {
+    /*	border: 1px solid #777777;
+        padding: 4px 9px 4px 9px;
+
+        background: #F4F4F4;
+        background: -moz-linear-gradient(top, #F4F4F4, #EEEEEE);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F4F4F4), to(#EEEEEE)); */
+    /*
+        -moz-border-radius: 5px 5px 0px 0px;
+        -webkit-border-radius: 5px 5px 0px 0px;
+        border-radius: 5px 5px 0px 0px;
+    */
+}
+
+/*.custom-menu li a {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px; 
+	color: #EEEEEE;
+	display:block;
+	outline:0;
+	text-decoration:none;
+	text-shadow: 1px 1px 1px #000;
+}
+*/
+/*.custom-menu li:hover a {
+	color:#161616;
+	text-shadow: 1px 1px 1px #ffffff;
+}
+*/
+/*.custom-menu li .drop {
+	padding-right:21px;
+	background:url("img/drop.png") no-repeat right 8px;
+}
+.custom-menu li:hover .drop {
+	background:url("img/drop.png") no-repeat right 7px;
+}
+*/
+.dropdown_1column,
+.dropdown_2columns,
+.dropdown_3columns,
+.dropdown_4columns,
+.dropdown_5columns {
+    margin:4px auto;
+    float:left;
+    position:absolute;
+    display: none;
+    opacity: 0;
+    /*	left:-999em; /* Скрываем выпадающие пункты */
+    text-align:left;
+    padding:10px 5px 10px 5px;
+    border:1px solid #777777;
+    border-top:none;
+
+    /* Фон с градиентом */
+    background:#FFFFFF;
+    /*	background: -moz-linear-gradient(top, #EEEEEE, #BBBBBB);
+        background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EEEEEE), to(#BBBBBB));*/
+
+    /* Скругленные углы */
+    -moz-border-radius: 0px 5px 5px 5px;
+    -webkit-border-radius: 0px 5px 5px 5px;
+    border-radius: 0px 5px 5px 5px;
+}
+
+/*.dropdown_1column {width: 140px;}
+.dropdown_2columns {width: 280px;}*/
+.dropdown_3columns {width: 870px;}
+/*.dropdown_4columns {width: 560px;}
+.dropdown_5columns {width: 700px;}*/
+
+.custom-menu li:hover .dropdown_1column,
+.custom-menu li:hover .dropdown_2columns,
+.custom-menu li:hover .dropdown_3columns,
+.custom-menu li:hover .dropdown_4columns,
+.custom-menu li:hover .dropdown_5columns {
+    left:-1px;
+    top:auto;
+    position: absolute;
+    display: block;
+    opacity: 1;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -ms-animation: fadein 1s; /* Internet Explorer */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
+    animation: fadein 1s;
+}
+@keyframes fadein {
+    0% { opacity: 0; }
+    80% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    0% { opacity: 0; }
+    80% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    80% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    0% { opacity: 0; }
+    80% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.col_1,
+.col_2,
+.col_3,
+.col_4,
+.col_5 {
+    display:inline;
+    float: left;
+    position: relative;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.col_1 {width:280px;}
+/*.col_2 {width:270px;}
+.col_3 {width:410px;}
+.col_4 {width:550px;}
+.col_5 {width:690px;}*/
+
+.custom-menu .menu_right {
+    float:right;
+    margin-right:0px;
+}
+.custom-menu li .align_right {
+    /* Скругленные углы */
+    -moz-border-radius: 5px 0px 5px 5px;
+    -webkit-border-radius: 5px 0px 5px 5px;
+    border-radius: 5px 0px 5px 5px;
+}
+
+.custom-menu li:hover .align_right {
+    left:auto;
+    right:-1px;
+    top:auto;
+}
+
+.custom-menu p, .custom-menu h2, .custom-menu h3, .custom-menu ul li {
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:21px;
+    font-size:12px;
+    text-align:left;
+    /*	text-shadow: 1px 1px 1px #FFFFFF;*/
+}
+.custom-menu h2 {
+    font-size:21px;
+    font-weight:400;
+    letter-spacing:-1px;
+    margin:7px 0 14px 0;
+    padding-bottom:14px;
+    border-bottom:1px solid #666666;
+}
+.custom-menu h3 {
+    font-size:14px;
+    margin:7px 0 14px 0;
+    padding-bottom:7px;
+    border-bottom:1px solid #888888;
+}
+.custom-menu p {
+    line-height:18px;
+    margin:0 0 10px 0;
+}
+/*
+.custom-menu li:hover div a {
+	font-size:12px;
+	color:#015b86;
+}
+.custom-menu li:hover div a:hover {
+	color:#029feb;
+}
+*/
+
+.strong {
+    font-weight:bold;
+}
+.italic {
+    font-style:italic;
+}
+
+.imgshadow { /* Лучший стиль для легкого фона */
+    background:#FFFFFF;
+    padding:4px;
+    border:1px solid #777777;
+    margin-top:5px;
+    -moz-box-shadow:0px 0px 5px #666666;
+    -webkit-box-shadow:0px 0px 5px #666666;
+    box-shadow:0px 0px 5px #666666;
+}
+.img_left { /* Изображения прижимаются влево */
+    width:auto;
+    float:left;
+    margin:5px 15px 5px 5px;
+}
+
+.custom-menu li .black_box {
+    background-color:#333333;
+    color: #eeeeee;
+    text-shadow: 1px 1px 1px #000;
+    padding:4px 6px 4px 6px;
+
+    /* Скругленные углы */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+
+    /* Тень */
+    -webkit-box-shadow:inset 0 0 3px #000000;
+    -moz-box-shadow:inset 0 0 3px #000000;
+    box-shadow:inset 0 0 3px #000000;
+}
+
+.custom-menu li ul {
+    list-style:none;
+    padding:0;
+    margin:0 0 12px 0;
+}
+.custom-menu li ul li {
+    font-size:12px;
+    line-height:24px;
+    position:relative;
+    /*	text-shadow: 1px 1px 1px #ffffff;*/
+    padding:0;
+    margin:0;
+    float:none;
+    text-align:left;
+    /*	width:130px;*/
+}
+.custom-menu li ul li:hover {
+    background:none;
+    border:none;
+    padding:0;
+    margin:0;
+}
+
+.custom-menu li .greybox li {
+    background:#F4F4F4;
+    border:1px solid #bbbbbb;
+    margin:0px 0px 4px 0px;
+    padding:4px 6px 4px 6px;
+    width:116px;
+
+    /* Скругленные углы */
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
+.custom-menu li .greybox li:hover {
+    background:#ffffff;
+    border:1px solid #aaaaaa;
+    padding:4px 6px 4px 6px;
+    margin:0px 0px 4px 0px;
+}
+
+
+#block_nav_primary.main-menu {
+    position: relative;
+    z-index: 100;
+}
+
+#block_nav_primary .grid_12.show {
+    overflow: visible;
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+}
+ul.custom-menu > li:first-child > a {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+ul.custom-menu li a {
+    background: url("/wa-data/public/shop/themes/fonarik/img/sprite.png") no-repeat scroll -374px -8px rgba(0, 0, 0, 0);
+    color: #6F7279;
+    display: block;
+    font: 14px/14px Tahoma,serif;
+    /*    height: 14px;*/
+    padding: 21px 12px;
+    text-decoration: none;
+}
+ul.custom-menu>li:hover>a {
+    color:#FFF;
+    background: url(/wa-data/public/shop/themes/fonarik/img/sprite.png) repeat-x 0px -164px;
+    text-decoration: none;
+}
+ul.custom-menu li:hover a.drop{
+    /*color:#FFF;
+    background: url(/wa-data/public/shop/themes/fonarik/img/sprite.png) repeat-x 0px -164px;*/
+    text-decoration: underline;
+}
+.dropdown_3columns.align_left {
+    margin: 0 auto;
+}
+ul.custom-menu .dropdown_3columns li a {
+    background: none;
+}
+.custom-menu li ul.nav {
+    margin-left: 20px;
+}
+
+.custom-menu li ul.nav li a {
+    font: 13px/13px Tahoma,serif;
+    padding: 3px;
+}
+ul.custom-menu div li a {
+    padding: 10px;
+    font-weight: bold;
+}
+ul.custom-menu div li a:hover {
+    /*color:#FFF;
+    background: url(/wa-data/public/shop/themes/fonarik/img/sprite.png) repeat-x 0px -164px;*/
+    text-decoration: underline;
+}
+
+ul.custom-menu div li .product a:hover {
+    background: none;
+}

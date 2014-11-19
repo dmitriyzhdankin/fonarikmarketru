@@ -1,0 +1,33 @@
+<script type="text/javascript" src="{$wa_app_static_url}plugins/custom/js/custom_backend.js?{$wa->version()}"></script>
+<div class="field">
+    <div class="name">[`Categories`]</div>
+    <div class="value product-categories-cheeckbox no-shift">
+        {function categories_checkbox categories_id=null}
+            <div class="categories_list">
+                {if !empty($categories)}
+                    {foreach $categories as $category}
+                        {foreach $categories_id as $category_id => $c}{if $category_id == $category.id}{"-"|str_repeat:$category.depth}{$category.name|escape}<br/>{/if}{/foreach}
+                    {/foreach}
+                {/if}
+            </div>
+            <a class="change_categories"  href="#"><i class="icon16 rarr"></i>[`Change categories`]</a>
+
+            <div class="categories_checkbox" style="display: none;">
+                <a class="hide_categories"  href="#"><i class="icon16 darr"></i>[`Hide categories`]</a>
+                {if !empty($categories)}
+                    {foreach $categories as $category}
+                        <div class="cat_check"><input type="checkbox" name="product[categories][]" class="category" value="{$category.id}" {foreach $categories_id as $category_id => $c}{if $category_id == $category.id} checked="checked"{/if}{/foreach}>{"-"|str_repeat:$category.depth}{$category.name|escape}</div>
+                    {/foreach}
+                {else}
+                    <select name="product[categories][]" class="s-product-categories">
+                        <option value="">[`No category exists`]</option>
+                        <option value="create">[`Create new category`]</option>
+                        <option class="separator" value="---" disabled="disabled" style="display:none;">---</option>
+                    </select>
+                {/if}
+                <a class="hide_categories"  href="#"><i class="icon16 darr"></i>[`Hide categories`]</a>
+            </div>
+        {/function}
+        <div>{categories_checkbox categories_id=$product.categories}</div>
+    </div>
+</div>

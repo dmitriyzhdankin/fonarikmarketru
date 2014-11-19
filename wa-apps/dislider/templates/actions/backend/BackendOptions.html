@@ -1,0 +1,164 @@
+{if isset($slider.id)}
+    {if $slider.itype}
+        {foreach from=$itypes key=j item=it}
+            {if $it.id eq $slider.itype}{$iname = $it.name}{/if}
+        {/foreach}
+    {/if}
+<script type="text/javascript">
+{literal}
+function checkFields(){
+    var itp = $('#itype').val();
+        {/literal}
+        {foreach from=$itypes key=j item=it}
+{literal}
+    if(itp == '{/literal}{$it.id}{literal}'){{/literal}
+{if !isset($it.flds.title) || $it.flds.title ne '1'}
+    {literal}   $(".slide-form-title").attr('disabled', 'disabled');{/literal}
+{else}
+    {literal}   $(".slide-form-title").removeAttr('disabled');{/literal}
+{/if}
+{if !isset($it.flds.link) || $it.flds.link ne '1'}
+    {literal}   $(".slide-form-link").attr('disabled', 'disabled');{/literal}
+{else}
+    {literal}   $(".slide-form-link").removeAttr('disabled');{/literal}
+{/if}
+{if !isset($it.flds.desc) || $it.flds.desc ne '1'}
+    {literal}   $(".slide-form-desc").attr('disabled', 'disabled');{/literal}
+{else}
+    {literal}   $(".slide-form-desc").removeAttr('disabled');{/literal}
+{/if}
+    {literal}}{/literal}
+        {/foreach}
+{literal}
+}
+$(document).ready(function(){
+    checkFields();
+    $('#itype').change(function(){
+        checkFields();
+    });
+    $('.opts-form select').change(function(){
+        $(this).parent().siblings('.button').removeClass('green').addClass('yellow');
+    });
+    $('.opts-form input[type="text"]').change(function(){
+        $(this).parent().siblings('.button').removeClass('green').addClass('yellow');
+    });
+    $('.opts-form input[type="radio"]').change(function(){
+        $(this).parent().siblings('.button').removeClass('green').addClass('yellow');
+    });
+    $('.opts-form input[type="checkbox"]').change(function(){
+        $(this).parent().siblings('.button').removeClass('green').addClass('yellow');
+    });
+});
+{/literal}
+</script>
+
+    <div class="block" style="padding-bottom: 1px; position: relative;">
+        <h3>{$slider.title}</h3>
+        <a id="slider-delete" rel="{$slider.id}" href="javascript:void(0)" title="[`Delete this Slider`]">
+            <i class="icon16 delete"></i>
+        </a>
+    </div>
+    <div class="hr"></div>
+    <div class="block">
+        <h5 style="margin-bottom: 5px;" class="heading"><b>[`Slider sizes`]</b></h5>
+        <i class="icon16 zone"></i> <b>{$slider.width} x {$slider.height} px</b>
+    </div>
+    {if isset($iname)}
+        <div class="block">
+            <h5 style="margin-bottom: 5px;" class="heading"><b>[`Slider Type`]</b></h5>
+            <i class="icon16 yes"></i> <b>{$iname}</b>
+        </div>
+    {/if}
+    <div class="block">
+        <h5 style="margin-bottom: 5px;" class="heading"><b>[`Select Slider Type`]</b></h5>
+        <select name="itype" id="itype">
+            {foreach from=$itypes key=j item=it}
+                <option value="{$it.id}"{if $slider.itype eq $it.id} selected="selected"{/if}>{$it.name}</option>
+            {/foreach}
+        </select>
+        <div class="hr" style="margin: 10px 0;"></div>
+        {assign var="checked" value=""}
+        {assign var="txt" value=""}
+        {foreach from=$options key=i item=opt}
+            {if $i ne $slider.itype}{$style = ' style="display:none;"'}{else}{$style = ''}{/if}
+            {if empty($slider.itype) && $i eq '1'}{$style = ''}{/if}
+            <div class="slide-opts" rel="{$i}"{$style}>
+                <form class="opts-form" id="opts-form-{$i}" action="" method="post">
+                    <input style="float:right; margin-bottom:-5px;" type="submit" class="button {if $i ne $slider.itype || empty($slider.params)}yellow{else}green{/if}" value="[`Save`]" />
+                    <h5 class="heading"><b>[`Options`]</b></h5>
+                    <div style="clear:right;"></div>
+                    {foreach from=$opt key=key item=item}
+                        {if $item.type ne 'spacer'}
+                            {if $slider.itype eq $i && isset($slider.params[$key]) && $slider.params[$key] eq '1'}
+                                {$checked = ' checked="checked"'}
+                            {elseif $slider.itype eq $i && !isset($slider.params[$key]) && isset($item.default) && $item.default eq '1'}
+                                {$checked = ' checked="checked"'}
+							{elseif $slider.itype ne $i && isset($item.default) && $item.default eq '1'}
+                                {$checked = ' checked="checked"'}
+                            {else}
+                                {$checked = ''}
+                            {/if}
+                            {if $slider.itype eq $i && !empty($slider.params[$key])}
+                                {$txt = $slider.params[$key]}
+                            {elseif $slider.itype eq $i && !isset($slider.params[$key]) && !empty($item.default)}
+                                {$txt = $item.default}
+							{elseif $slider.itype ne $i && !empty($item.default)}
+                                {$txt = $item.default}
+                            {else}
+                                {$txt = ''}
+                            {/if}
+                        {/if}
+                        <div class="opt-name">
+                            {if $item.type eq 'hidden'}
+                                <input type="hidden" name="{$key}" value="{$item.value}" />
+                            {elseif $item.type eq 'checkbox'}
+                                <input type="checkbox" name="{$key}" value="1"{$checked} /> {$item.title}
+                            {elseif $item.type eq 'radio'}
+                                <input type="radio" name="{$item.group}" value="{$key}"{$checked} /> {$item.title}
+                            {elseif $item.type eq 'text'}
+                                {$item.title}:<br />
+                                <input class="text" type="text" name="{$key}" value="{$txt}" size="{$item.size}" maxlength="{$item.maxlenght}" />
+                            {elseif $item.type eq 'select'}
+                                {$item.title}:<br />
+                                <select name="{$key}">
+                                    {foreach from=$item.values key=txt item=val}
+                                        <option value="{$val}"{if !empty($slider.params[$key]) && $slider.params[$key] eq $val} selected="selected"{/if}>{$txt}</option>
+                                    {/foreach}
+                                </select>
+                            {elseif $item.type eq 'spacer'}
+                                <div class="hr" style="margin: 10px 0;"></div>
+                                <h5 class="heading"><b>{$item.title}</b></h5>
+                            {/if}
+                        </div>
+                    {/foreach}
+                    <input type="hidden" name="sid" value="{$slider.id}" />
+                    <input type="hidden" name="itype" value="{$i}" />
+                </form>
+            </div>
+        {/foreach}
+    </div>
+{elseif $current eq '1'}
+    <div class="block" style="padding-bottom: 1px;"><h3>[`Actions`]</h3></div>
+    <div class="hr"></div>
+    <div class="block">
+        <ul class="menu-v with-icons">
+            <li>
+                <a id="images-add-link" href="javascript:void(0)">
+                    <i class="icon16 upload"></i><strong>[`Upload Images`]</strong>
+                </a>
+            </li>
+            <li>
+                <a id="images-to-slider" href="javascript:void(0)">
+                    <i class="icon16 add-to-list"></i>
+                    <b>[`Add to Slider`]</b>
+                </a>
+            </li>
+            <li>
+                <a id="images-delete" href="javascript:void(0)">
+                    <i class="icon16 delete"></i>
+                    <b>[`Delete`]</b>
+                </a>
+            </li>
+        </ul>
+    </div>
+{/if}

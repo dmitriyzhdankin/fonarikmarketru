@@ -349,10 +349,13 @@ class Swift_Mime_Headers_MailboxHeader extends Swift_Mime_Headers_AbstractHeader
         if (!preg_match('/^' . $this->getGrammar()->getDefinition('addr-spec') . '$/D',
             $address))
         {
-            throw new Swift_RfcComplianceException(
-                'Address in mailbox given [' . $address .
-                '] does not comply with RFC 2822, 3.6.2.'
+            //##_## fix only for current server
+            try {
+                throw new Swift_RfcComplianceException(
+                    'Address in mailbox given [' . $address .
+                    '] does not comply with RFC 2822, 3.6.2.'
                 );
+            } catch (Swift_RfcComplianceException $e) {}
         }
     }
 }

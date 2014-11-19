@@ -131,32 +131,29 @@ class shopFrontendCheckoutAction extends waViewAction
             $title = $app['name'];
         }
 
-        $result =  "_gaq.push(['_addTrans',
-            '".$order['id']."',           // transaction ID - required
-            '".htmlspecialchars($title)."',  // affiliation or store name
-            '".$this->getBasePrice($order['total'], $order['currency'])."',          // total - required
-            '".$this->getBasePrice($order['tax'], $order['currency'])."',           // tax
-            '".$this->getBasePrice($order['shipping'], $order['currency'])."',              // shipping
-            '".$this->getOrderAddressField($order, 'city')."',       // city
-            '".$this->getOrderAddressField($order, 'region')."',     // state or province
-            '".$this->getOrderAddressField($order, 'country')."'             // country
-        ]);\n";
+        $result = "ga('require', 'ecommerce');";
+        $result .= "ga('ecommerce:addTransaction', {
+              'id': '".$order['id']."',                     // Transaction ID. Required.
+              'affiliation': '".htmlspecialchars($title)."',   // Affiliation or store name.
+              'revenue': '".$this->getBasePrice($order['total'], $order['currency'])."',               // Grand Total.
+              'shipping': '".$this->getBasePrice($order['shipping'], $order['currency'])."',                  // Shipping.
+              'tax': '".$this->getBasePrice($order['tax'], $order['currency'])."',                     // Tax.
+              'currency': '".$this->getConfig()->getCurrency(true)."'
+            });\n";
 
         foreach ($order['items'] as $item) {
             $sku = $item['type'] == 'product' ? $item['sku_code'] : '';
-            $result .= " _gaq.push(['_addItem',
-            '".$order['id']."',           // transaction ID - required
-            '".$sku."',           // SKU/code - required
-            '".htmlspecialchars($item['name'])."',        // product name
-            '',   // category or variation
-            '".$this->getBasePrice($item['price'], $order['currency'])."',          // unit price - required
-            '".$item['quantity']."'               // quantity - required
-          ]);\n";
+            $result .= "ga('ecommerce:addItem', {
+                    'id': '".$order['id']."',                     // Transaction ID. Required.
+                    'name': '".htmlspecialchars($item['name'])."',    // Product name. Required.
+                    'sku': '".$sku."',                 // SKU/code.
+                    'category': '',         // Category or variation.
+                    'price': '".$this->getBasePrice($item['price'], $order['currency'])."',                 // Unit price.
+                    'quantity': '".$item['quantity']."'                   // Quantity.
+                });\n";
         }
 
-        $result .= "_gaq.push(['_set', 'currencyCode', '".$this->getConfig()->getCurrency(true)."']);\n";
-        $result .= "_gaq.push(['_trackTrans']);\n";
-
+        $result .= "ga('ecommerce:send');\n";
         return $result;
     }
 
@@ -181,6 +178,19 @@ class shopFrontendCheckoutAction extends waViewAction
         $contact = $this->getUser()->isAuth() ? $this->getUser() : $checkout_data['contact'];
         $cart = new shopCart();
         $items = $cart->items(false);
+        //##_## Round price
+        $pitems = $items;
+        $config = wa('shop')->getConfig();
+        $currency = $config->getCurrency(false);
+        foreach($pitems as $ikey => $pitem){
+            $newprice = $pitem['price'];
+            $currencies = wa('shop')->getConfig()->getCurrencies(array($pitem['currency'], $currency));
+            $items[$ikey]['price'] = ceil($newprice * $currencies[$pitem['currency']]['rate']);
+            $items[$ikey]['currency'] = $currency;
+            $pnewprice = ceil($pitem['product']['price']);
+            $items[$ikey]['product']['price'] = $pnewprice;
+        }
+
         // remove id from item
         foreach ($items as &$item) {
             unset($item['id']);

@@ -1,0 +1,92 @@
+{function name=items_list items=null parent_id = 0 level = 0}
+    {if isset($items[$parent_id]) }
+        {foreach $items[$parent_id] as $key=>$item_child}
+            {if $item_child.parent_id == 0}{$level = 0}{/if}
+            
+            {$add_class = ''}
+            {if $level == 1}{if $item_child.column == 1}{$add_class = ' first-column'}{/if}{if $item_child.column == 2}{$add_class = ' second-column'}{/if}{if $item_child.column == 3}{$add_class = ' third-column'}{/if}{/if}
+            <div id="item_{$item_child.id}" class="field-group{$add_class}">
+                <div class="item-fields">
+                    <input class="item-id" type="hidden" name="item[{$item_child.id}][id]" value="{$item_child.id}" />
+                    <input class="parent-id" type="hidden" name="item[{$item_child.id}][parent_id]" value="{$item_child.parent_id}" />
+                    <div class="field field-title">
+                        <div class="name">Title</div>
+                        <div class="value"><input rel="{$item_child.id}" {if $item_child.type == 'product'} class="product-autocomplete"{/if} type="text" value="{$item_child.title}" name="item[{$item_child.id}][title]" /></div>
+                    </div>
+                    <div class="field field-url{if $item_child.type == 'product'} hidden{/if}">
+                        <div class="name">Link</div>
+                        <div class="value"><input type="text" value="{$item_child.url}" name="item[{$item_child.id}][url]" /></div>
+                    </div>
+                    <div class="field field-sort">
+                        <div class="name">Sort</div>
+                        <div class="value"><input type="text" value="{$item_child.sort}" name="item[{$item_child.id}][sort]" /></div>
+                    </div>
+                    <div class="field field-type{if $level != 1} hidden{/if}">
+                        <div class="name">Type</div>
+                        <div class="value"><select rel="{$item_child.id}" name="item[{$item_child.id}][type]"><option value="link"{if $item_child.type=='link'} selected="selected"{/if}>Link</option><option value="product"{if $item_child.type=='product'} selected="selected"{/if}>Product</option></select></div>
+                    </div>
+                    <div class="field field-colunm{if $level != 1} hidden{/if}">
+                        <div class="name">Column</div>
+                        <div class="value"><select name="item[{$item_child.id}][column]"><option value="1"{if $item_child.column=='1'} selected="selected"{/if}>Column 1</option><option value="2"{if $item_child.column=='2'} selected="selected"{/if}>Column 2</option><option value="3"{if $item_child.column=='3'} selected="selected"{/if}>Column 3</option></select></div>
+                    </div>
+                    {if $item_child.type != 'product'}
+                    <div class="field field-add">
+                        <div class="name item-add-child" rel="{$item_child.id}">Add Child</div>
+                    </div>
+                    {/if}
+                    <div class="field field-delete">
+                        <div class="name">Delete</div>
+                        <div class="value"><input rel="{$item_child.id}" type="checkbox" name="item[{$item_child.id}][delete]" /></div>
+                    </div>
+                </div>
+                {items_list items=$items parent_id = $item_child.id level = ($level+1) }
+            </div>
+        {/foreach}
+   {/if}    
+{/function}
+
+<div class="block">
+    <form action="?plugin=custommenu&action=editmenu&id={$menu.menu_id}" method="POST" id="plugin-custommenu-form" >
+        {$wa->csrf()}
+        <h6 class="heading">{$menu.name} [`Menu items`]</h6>
+        <div class="item-list">
+            {items_list items=$items parent_id = 0 level = 0 }
+        </div>
+        <input type="submit" class="button green" value="[`Save`]" />
+    </form>
+    <div class="clear-left"></div>
+</div>
+
+{literal}
+<script id='add_item_template' type='text/x-jquery-tmpl'>    
+    <div class="field-group new-item" id="item_new_${num}">
+        <div class="item-fields">
+            <input type="hidden" name="item[new_${num}][parent_id]" value="${parent}" />
+            <div class="field field-title">
+                <div class="name">Title</div>
+                <div class="value"><input rel="new_${num}" type="text" name="item[new_${num}][title]" value="" /></div>
+            </div>
+            <div class="field field-url">
+                <div class="name">Link</div>
+                <div class="value"><input rel="new_${num}" type="text" name="item[new_${num}][url]" value="" /></div>
+            </div>
+            <div class="field field-sort">
+                <div class="name">Sort</div>
+                <div class="value"><input rel="new_${num}" type="text" name="item[new_${num}][sort]" value="" /></div>
+            </div>
+            <div class="field field-type">
+                <div class="name">Type</div>
+                <div class="value"><select rel="new_${num}" name="item[new_${num}][type]"><option value="link">Link</option><option value="product">Product</option></select></div>
+            </div>
+            <div class="field field-colunm">
+                <div class="name">Column</div>
+                <div class="value"><select name="item[new_${num}][column]"><option value="1">Column 1</option><option value="2">Column 2</option><option value="3">Column 3</option></select></div>
+            </div>
+            <div class="field field-delete">
+                <div class="name">Delete</div>
+                <div class="value"><input rel="new_${num}" type="checkbox" name="item[new_${num}][delete]" /></div>
+            </div>
+        </div>
+    </div>
+</script>
+{/literal}

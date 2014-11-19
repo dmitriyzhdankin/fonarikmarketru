@@ -1,0 +1,45 @@
+<div class="block" style="margin-bottom: 2px;">
+    <a id="slider-add-link" href="javascript:void(0)" class="bold no-underline">
+        <i class="icon16 add"></i><strong>[`Add Slider`]</strong>
+    </a>
+</div>
+<div id="sliders-menu" class="block">
+    <ul class="menu-v with-icons">
+        <li{if $current eq 1} class="current"{/if}>
+            <span id="count" class="count">{$icount}</span>
+            <a id="all-images" href="{$appUrl}" class="no-underline">
+                <i class="icon16 pictures"></i>[`All Images`]
+            </a>
+        </li>
+    </ul>
+    <div class="hr" style="margin: 0;"></div>
+    <h5 class="heading" style="margin-top: 15px;"><b>[`Sliders`]</b></h5>
+    {if isset($sliders) && count($sliders) gt 0}
+        <ul id="sliders-list" class="menu-v with-icons">
+            {foreach from=$sliders key=i item=s}
+            <li class="slider-{$s.id}{if $s.selected eq 1} selected{/if}">
+                <span class="count">{$s.count}</span>
+                <a rel="{$s.id}" href="?id={$s.id}"><i class="icon16 folder"></i>{$s.title}</a>
+            </li>
+            {/foreach}
+        </ul>
+    {else}
+        <br />
+        [`To create new Slider`]<br />
+        [`Please use "Add Slider" button`]<br /><br />
+    {/if}
+</div>
+<div class="block">
+    <ul class="menu-v with-icons">
+        <li{if $current eq 2} class="current"{/if}>
+            <a href="?module=settings" class="no-underline">
+                <i class="icon16 settings"></i>[`Settings`]
+            </a>
+        </li>
+        <li>
+            <a id="view-help" href="javascript:void(0)" class="no-underline" rel="{$current}">
+                <i class="icon16 info"></i>[`Help`]
+            </a>
+        </li>
+    </ul>
+</div>

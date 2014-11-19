@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{$wa->appName()} &mdash; {$wa->accountName()}</title>
+        {$wa->css()}
+        <link type="text/css" rel="stylesheet" href="{$wa_app_static_url}assets/disliderBackend.css">
+        <script type="text/javascript" src="{$wa_url}wa-content/js/jquery/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-wa/wa.core.js"></script>
+        <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-wa/wa.dialog.js"></script>
+        <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-plugins/jquery.history.js"></script>
+        <script type="text/javascript" src="{$wa_app_static_url}third-party/jquery.form.js"></script>
+        <script type="text/javascript" src="{$wa_url}wa-content/js/jquery-ui/jquery-ui-1.7.2.custom.min.js"></script>
+        <script type="text/javascript" src="{$wa_app_static_url}assets/dislider.js"></script>
+        <script type="text/javascript">
+            {literal}
+            di_loc = {
+                        'nothing_selected'   : '{/literal}[`Do not select any one pictures`]{literal}',
+                        'no_sliders_exist'   : '{/literal}[`You must create a Slider first`]{literal}',
+                        'Processed'          : '{/literal}[`Processed`]{literal}',
+                        'Errors'             : '{/literal}[`Errors`]{literal}',
+                        'delete'             : '{/literal}[`Delete`]{literal}',
+                        'cancel'             : '{/literal}[`cancel`]{literal}',
+                        'or'                 : '{/literal}[`or`]{literal}',
+                        'delete_this_slider' : '{/literal}[`Delete this Slider and its contents`]{literal}',
+                        'delete_this_slide'  : '{/literal}[`Delete this Slide`]{literal}',
+                        'delete_this_images' : '{/literal}[`Delete this Images`]{literal}'
+                     }
+            {/literal}
+        </script>
+    </head>
+    <body>
+        <div id="wa">
+            {$wa->header()}
+            <div id="wa-app">
+                <div id="sidebar" class="sidebar left200px">
+                    {$sidebar}
+                </div>
+                <div class="content left200px shadowed" id="c-core">
+                    <div class="sidebar right250px" id="options">
+                        {$options}
+                    </div>
+                    <div class="block content right250px" id="content">
+                        {$content}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="dialog small width500px" id="slider-add" style="display:none">
+            <div class="dialog-background"></div>
+            <div class="dialog-window">
+                <form method="post">
+                    <div class="dialog-content">
+                        <div class="dialog-content-indent">
+                            <h1>[`Add New Slider`]</h1>
+                            <div class="block fields form">
+                                <div class="field-group">
+                                    <div class="field">
+                                        <div class="name">[`Slider Title`]</div>
+                                        <div class="value"><input name="dislider-title" type="text" value="" /></div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="name">[`Slider Width`]</div>
+                                        <div class="value"><input name="dislider-width" type="text" value="" style="width: 70px; min-width: 70px;" /> px</div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="name">[`Slider Height`]</div>
+                                        <div class="value"><input name="dislider-height" type="text" value="" style="width: 70px; min-width: 70px;" /> px</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dialog-buttons">
+                        <div class="dialog-buttons-gradient">
+                            <input type="submit" class="button green" value="[`Add`]" /> [`or`]
+                            <a href="javascript:void(0)" class="inline-link cancel"><b><i>[`cancel`]</i></b></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

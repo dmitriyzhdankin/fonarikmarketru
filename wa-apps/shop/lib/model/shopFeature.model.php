@@ -61,7 +61,7 @@ class shopFeatureModel extends waModel
         $feature['multiple'] = intval($feature['multiple']);
 
         if (empty($feature['code'])) {
-            $feature['code'] = strtolower(waLocale::transliterate($feature['name']));
+            $feature['code'] = strtolower(waLocale::transliterate($feature['name'],'ru_RU'));
         }
         $feature['code'] = $this->getUniqueCode($feature['code'], $id);
         if ($id > 0) {
@@ -104,7 +104,7 @@ class shopFeatureModel extends waModel
 
     public function getUniqueCode($code, $id = null)
     {
-        if ($code = preg_replace('/[^a-zA-Z0-9_]+/', '_', trim(waLocale::transliterate($code)))) {
+        if ($code = preg_replace('/[^a-zA-Z0-9_]+/', '_', trim(waLocale::transliterate($code,'ru_RU')))) {
             if ($code == '_') {
                 $code = 'f_';
             }

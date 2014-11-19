@@ -319,7 +319,7 @@ class shopFrontendProductAction extends shopFrontendAction
         $this->view->assign('compare', in_array($product['id'], $compare) ? $compare : array());
 
         if (!$is_cart) {
-            $this->view->assign('reviews', $this->getTopReviews($product['id']));
+            $this->view->assign('reviews', $this->reviews_model->getFullTree($product['id']));
             $this->view->assign('rates', $this->reviews_model->getProductRates($product['id']));
             $this->view->assign('reviews_total_count', $this->getReviewsTotalCount($product['id']));
 

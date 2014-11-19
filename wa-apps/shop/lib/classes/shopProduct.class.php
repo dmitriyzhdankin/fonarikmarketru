@@ -182,6 +182,16 @@ class shopProduct implements ArrayAccess
                 $value = $id;
             }
 
+            //##_## Trim name and sku
+            if ($name == 'name') {
+                $value = trim($value);
+            }
+            if ($name == 'skus') {
+                foreach($value as &$sku) {
+                    $sku['sku'] = trim($sku['sku']);
+                }
+            }
+
             $this->__set($name, $value);
         }
         if ($this->is_dirty) {
