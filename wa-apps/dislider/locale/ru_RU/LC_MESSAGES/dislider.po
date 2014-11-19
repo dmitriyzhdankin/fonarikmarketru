@@ -1,0 +1,502 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: dislider\n"
+"POT-Creation-Date: 2013-12-15 00:52+0400\n"
+"PO-Revision-Date: \n"
+"Last-Translator: diFabrik.ru <dev@difabrik.ru>\n"
+"Language-Team: dislider\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)"
+">=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: /wa-apps/dislider/lib/config/app.php:4
+msgid "Slider"
+msgstr "Слайдер"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:3
+msgid "Code to Insert"
+msgstr "Код для вставки"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:7
+msgid "Add Image"
+msgstr "Добавить Слайд"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:33
+msgid "Title"
+msgstr "Заголовок"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:40
+msgid "Link"
+msgstr "Ссылка"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:47
+msgid "Description"
+msgstr "Описание"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:80
+msgid "Save"
+msgstr "Сохранить"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:72
+msgid "To add Slides in this Slider"
+msgstr "Чтобы добавить Слайды в этот Слайдер"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:73
+msgid "please use \"Add Slide\" button"
+msgstr "используйте кнопку \"Добавить Слайд\""
+
+#: /wa-apps/dislider/templates/actions/backend/BackendSidebar.html:13
+msgid "All Images"
+msgstr "Все изображения"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:104
+msgid "To upload new images"
+msgstr "Для загрузки Изображений"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:105
+msgid "please use \"Upload Images\" button"
+msgstr "используйте кнопку \"Загрузка Изображений\""
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:115
+msgid "Add Images in Slider"
+msgstr "Добавление Изображений в Слайдер"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:9
+msgid "Images processing"
+msgstr "Обработка изображений"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:13
+msgid "Rectangle crop"
+msgstr "Прямоугольная обрезка"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:21
+msgid "Proportionally resizing"
+msgstr "Пропорциональная подгонка"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:29
+msgid "Not proportionally adjustment"
+msgstr "Без учета пропорций"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:129
+msgid "Offset by Width"
+msgstr "Смещение по горизонтали"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:44
+msgid "Left"
+msgstr "По левому краю"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:45
+msgid "Center"
+msgstr "По центру"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:46
+msgid "Right"
+msgstr "По правому краю"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:139
+msgid "Offset by Height"
+msgstr "Смещение по вертикали"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:50
+msgid "Top"
+msgstr "По верхнему краю"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:51
+msgid "Middle"
+msgstr "По центру"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:52
+msgid "Bottom"
+msgstr "По нижнему краю"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:150
+msgid "Select images"
+msgstr "Выбрать изображения"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:157
+msgid "Select slider"
+msgstr "Выбрать слайдер"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:78
+msgid "Add"
+msgstr "Добавить"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:78
+msgid "or"
+msgstr "или"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:79
+msgid "cancel"
+msgstr "отмена"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:196
+msgid "Add New Images"
+msgstr "Загрузка Изображений"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendDefault.html:214
+msgid "Upload"
+msgstr "Загрузить"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:57
+msgid "Delete this Slider"
+msgstr "Удалить этот Слайдер"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:63
+msgid "Slider sizes"
+msgstr "Размеры Слайда"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:68
+msgid "Slider Type"
+msgstr "Тип Слайдера"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:73
+msgid "Select Slider Type"
+msgstr "Выбор Типа Слайдера"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:86
+msgid "Options"
+msgstr "Параметры"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:136
+msgid "Theme"
+msgstr "Тема"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:137
+msgid "Animation type"
+msgstr "Тип Анимации"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:138
+msgid "Show slides randomly"
+msgstr "Случайный порядок Слайдов"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:139
+msgid "Auto play"
+msgstr "Авто прокрутка"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:140
+msgid "Stop on mouse over"
+msgstr "Остановка при наведении"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:141
+msgid "Animation speed"
+msgstr "Скорость анимации"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:142
+msgid "Very slow"
+msgstr "Очень медленно"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:143
+msgid "Slow"
+msgstr "Медленно"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:144
+msgid "Normal"
+msgstr "Нормально"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:145
+msgid "Fast"
+msgstr "Быстро"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:146
+msgid "Very fast"
+msgstr "Очень быстро"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:147
+msgid "Visible slides"
+msgstr "Количество Слайдов (одновременно)"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:147
+msgid "Offset (in one step)"
+msgstr "Шаг прокрутки (Слайдов за раз)"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:147
+msgid "Margin between slides (px)"
+msgstr "Расстояние между Слайдами (px)"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:147
+msgid "Time interval (ms)"
+msgstr "Задержка Слайда (миллисекунды)"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:148
+msgid "Show progressbar"
+msgstr "Показать \"прогресс бар\""
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:149
+msgid "Enable arrow keys"
+msgstr "Управление с клавиатуры"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:150
+msgid "Navigation buttons"
+msgstr "Кнопки навигации"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:151
+msgid "Hide navigation tools"
+msgstr "Скрывать кнопки"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:152
+msgid "Secondary navigation"
+msgstr "Доп. навигация"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:153
+msgid "Do not show"
+msgstr "Не использовать"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:154
+msgid "Show dots"
+msgstr "Точки"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:155
+msgid "Show numbers"
+msgstr "Цифры"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:156
+msgid "Show thumbs"
+msgstr "Превью"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:157
+msgid "Secondary navigation align"
+msgstr "Расположение"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:163
+msgid "Slider mode"
+msgstr "Режим прокрутки"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:164
+msgid "Horizontal"
+msgstr "Горизонтальный"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:165
+msgid "Vertical"
+msgstr "Вертикальный"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:166
+msgid "Fade"
+msgstr "Затемнение"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:167
+msgid "Slider direction"
+msgstr "Направление прокрутки"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:168
+msgid "Forward"
+msgstr "Вперед"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:169
+msgid "Backward"
+msgstr "Назад"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:170
+msgid "Animation effect"
+msgstr "Тип Анимации"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:171
+msgid "Hide on mouse over"
+msgstr "Показать при наведении"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:172
+msgid "Titles & Descriptions"
+msgstr "Заголовки и Описания"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:173
+msgid "Position of Title & Description block"
+msgstr "Расположение в Слайде"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:179
+msgid "Actions"
+msgstr "Действия"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:185
+msgid "Upload Images"
+msgstr "Загрузка Изображений"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendOptions.html:191
+msgid "Add to Slider"
+msgstr "Добавить в Слайдер"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:22
+msgid "Delete"
+msgstr "Удалить"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendSidebar.html:4
+msgid "Add Slider"
+msgstr "Добавить Слайдер"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendSidebar.html:18
+msgid "Sliders"
+msgstr "Слайдеры"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendSidebar.html:30
+msgid "To create new Slider"
+msgstr "Чтобы создать Слайдер"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendSidebar.html:31
+msgid "Please use \"Add Slider\" button"
+msgstr "используйте кнопку \"Добавить Слайдер\""
+
+#: /wa-apps/dislider/templates/actions/backend/BackendSidebar.html:38
+msgid "Settings"
+msgstr "Настройки"
+
+#: /wa-apps/dislider/templates/actions/backend/BackendSidebar.html:43
+msgid "Help"
+msgstr "Помощь"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:3
+msgid "Settings updated"
+msgstr "Настройки сохранены"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:16
+msgid ""
+"The smaller image side will be adjust to the slider size, and the bigger "
+"image side will be cropped (using \"Offset\")"
+msgstr ""
+"Меньшая сторона изображения будет подогнана под размер слайдера, а большая "
+"будет обрезана (с использованием \"Смещения\")"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:24
+msgid ""
+"The bigger image side will be resized adjusting to the slider size, and the "
+"smaller image side will be resized proportionally (the result image will be "
+"moved by using \"Offset\", and the free space of slider size will be filled "
+"by white color)"
+msgstr ""
+"Большая сторона изображения будет подогнана под размер слайдера, а меньшая "
+"будет пропорционально уменьшена (полученное изображение будет раположено в "
+"слайде с использованием \"Смещения\", а свободное пространство будет залито "
+"белым цветом)"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:32
+msgid ""
+"Result image will be adjusting to the slider size (not taking into account "
+"the proportions of the original image)"
+msgstr ""
+"Изображение будет жестко приведено к размерам слайдера (не учитывая "
+"пропорции оригинала)"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:39
+msgid "Offset"
+msgstr "Смещение"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:42
+msgid "By width"
+msgstr "По горизонтали"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:48
+msgid "By height"
+msgstr "По вертикали"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:54
+msgid ""
+"By using \"Rectangle crop\", it defines from where cropping of bigger image "
+"side will start. By using \"Proportionally resizing\", it defines where "
+"result image will be moved (on slider size)."
+msgstr ""
+"При использовании режима \"Прямоугольная обрезка\", Смещение определяет с "
+"какой стороны начнется обрезка большей стороны изображения. При "
+"использовании режима \"Пропорциональная подгонка\", Смещение определяет как "
+"расположить готовое изображение относительно размеров слайдера."
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:58
+msgid "Images quality"
+msgstr "Качество изображений"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:62
+msgid "Sharpen"
+msgstr "Резкость"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:65
+msgid "Apply sharpening filter when processing image (recommended)"
+msgstr ""
+"Применить фильтр резкости при создании эскизов изображений (рекомендуется)"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:70
+msgid "Resizing quality"
+msgstr "Качество"
+
+#: /wa-apps/dislider/templates/actions/settings/Settings.html:74
+msgid ""
+"JPEG compression quality for result image. From 0 (min quality, min file "
+"size) to 100 (max quality, max file size). 90 is recommended."
+msgstr ""
+"Коэффициент качества сжатия JPEG при создании эскизов изображений. От 0 "
+"(минимальное качество, минимальный размер файлов) до 100 (максимальное "
+"качество, максимальный размер файлов). Рекомендуемое значение — 90."
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:18
+msgid "Do not select any one pictures"
+msgstr "Не выбрано ни одного изображения"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:19
+msgid "You must create a Slider first"
+msgstr "Необходимо сначала создать Слайдер"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:20
+msgid "Processed"
+msgstr "Обработано"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:21
+msgid "Errors"
+msgstr "Ошибки"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:25
+msgid "Delete this Slider and its contents"
+msgstr "Удалить этот Слайдер со всем содержимым"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:26
+msgid "Delete this Slide"
+msgstr "Удалить этот Слайд"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:27
+msgid "Delete this Images"
+msgstr "Удалить эти Изображения"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:57
+msgid "Add New Slider"
+msgstr "Добавить Слайдер"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:61
+msgid "Slider Title"
+msgstr "Название Слайдера"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:65
+msgid "Slider Width"
+msgstr "Ширина"
+
+#: /wa-apps/dislider/templates/layouts/Backend.html:69
+msgid "Slider Height"
+msgstr "Высота"
+
+#: /wa-apps/dislider/lib/classes/disliderImage.class.php:146
+msgid "Can't write file in %s folder."
+msgstr "Не возможно сохранить в категории %s"
+
+#: /wa-apps/dislider/lib/actions/ajax/disliderAjax.actions.php:167
+msgid "Uploaded files"
+msgstr "Загружено файлов"
+
+#: /wa-apps/dislider/lib/actions/ajax/disliderAjax.actions.php:174
+msgid "Count Errors"
+msgstr "Ошибок"
+
+#: /wa-apps/dislider/lib/actions/ajax/disliderAjax.actions.php:175
+msgid "Details"
+msgstr "Подробнее"
+
+#: /wa-apps/dislider/lib/classes/disliderImage.class.php:165
+msgid "Incorrect image format"
+msgstr "Не верный формат изображения"
+
+#: /wa-apps/dislider/lib/classes/disliderImage.class.php:117
+msgid "Database error"
+msgstr "Ошибка при сохранении в БД"
+
+#: /wa-apps/dislider/lib/classes/disliderViewHelper.class.php:279
+msgid "Uncorrect Slider ID"
+msgstr "Неверный идентификатор Слайдера"

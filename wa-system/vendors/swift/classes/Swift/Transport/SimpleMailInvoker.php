@@ -33,7 +33,8 @@ class Swift_Transport_SimpleMailInvoker implements Swift_Transport_MailInvoker
     public function mail($to, $subject, $body, $headers = null, $extraParams = null)
     {
         if (!ini_get('safe_mode')) {
-            return @mail($to, $subject, $body, $headers, $extraParams);
+            //##_## fix only for current server
+            return @mail($to, $subject, $body, $headers);
         } else {
             return @mail($to, $subject, $body, $headers);
         }

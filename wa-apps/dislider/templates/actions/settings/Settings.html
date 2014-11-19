@@ -1,0 +1,85 @@
+    {if isset($saved) && $saved}
+        <div class="block double-padded p-message-success">
+            <i class="icon16 yes"></i>[`Settings updated`]
+        </div>
+    {/if}
+    <div class="block double-padded blank" id="settings-block">
+        <form action="" method="post" id="settings-form">
+            <div class="fields form">
+                <h6 class="heading">[`Images processing`]</h6>
+                <div class="field-group">
+                    <div class="field">
+                        <div class="name">
+                            [`Rectangle crop`]
+                        </div>
+                        <div class="value no-shift">
+                            <label><input style="float: left;" type="radio" name="processing" value="1"{if $settings.processing eq '1' || empty($settings.processing)} checked="checked"{/if} /><div style="margin-left: 20px;">[`The smaller image side will be adjust to the slider size, and the bigger image side will be cropped (using "Offset")`]</div></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">
+                            [`Proportionally resizing`]
+                        </div>
+                        <div class="value no-shift">
+                            <label><input style="float: left;" type="radio" name="processing" value="2"{if $settings.processing eq '2'} checked="checked"{/if} /><div style="margin-left: 20px;">[`The bigger image side will be resized adjusting to the slider size, and the smaller image side will be resized proportionally (the result image will be moved by using "Offset", and the free space of slider size will be filled by white color)`]</div></label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">
+                            [`Not proportionally adjustment`]
+                        </div>
+                        <div class="value no-shift">
+                            <label><input style="float: left;" type="radio" name="processing" value="3"{if $settings.processing eq '3'} checked="checked"{/if} /><div style="margin-left: 20px;">[`Result image will be adjusting to the slider size (not taking into account the proportions of the original image)`]</div></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <div class="field">
+                        <div class="name">
+                            [`Offset`]
+                        </div>
+                        <div class="value">
+                            [`By width`]:
+                            <select name="processing_offset_width">
+                                <option value="1"{if $settings.processing_offset_width eq '1'} selected="selected"{/if}>[`Left`]</option>
+                                <option value="2"{if $settings.processing_offset_width eq '2'} selected="selected"{/if}>[`Center`]</option>
+                                <option value="3"{if $settings.processing_offset_width eq '3'} selected="selected"{/if}>[`Right`]</option>
+                            </select> &nbsp;&nbsp;&nbsp;
+                            [`By height`]:
+                            <select name="processing_offset_height">
+                                <option value="1"{if $settings.processing_offset_height eq '1'} selected="selected"{/if}>[`Top`]</option>
+                                <option value="2"{if $settings.processing_offset_height eq '2'} selected="selected"{/if}>[`Middle`]</option>
+                                <option value="3"{if $settings.processing_offset_height eq '3'} selected="selected"{/if}>[`Bottom`]</option>
+                            </select><br />
+                            <span class="hint">[`By using "Rectangle crop", it defines from where cropping of bigger image side will start. By using "Proportionally resizing", it defines where result image will be moved (on slider size).`]</span>
+                        </div>
+                    </div>
+                </div>
+                <h6 class="heading">[`Images quality`]</h6>
+                <div class="field-group">
+                    <div class="field">
+                        <div class="name">
+                            [`Sharpen`]
+                        </div>
+                        <div class="value no-shift">
+                            <label><input type="checkbox" name="sharpen" value="1" {if !empty($settings.sharpen)}checked{/if}> [`Apply sharpening filter when processing image (recommended)`]</label>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="name">
+                            [`Resizing quality`]
+                        </div>
+                        <div class="value">
+                            <input style="width: 50px;" type="input" name="save_quality" maxlength="6" value="{if !empty($settings.save_quality)}{str_replace(',', '.', $settings.save_quality)}{/if}"><br>
+                            <span class="hint">[`JPEG compression quality for result image. From 0 (min quality, min file size) to 100 (max quality, max file size). 90 is recommended.`]</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="value submit">
+                        <input type="submit" name="save" class="button green" value="[`Save`]">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>

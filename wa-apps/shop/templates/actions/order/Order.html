@@ -175,6 +175,8 @@
                     {$billing_address}
                 </p>
             {/if}
+        {else}
+            <h3><span class="gray">[`Payment`] &mdash;</span> <strong>{$customer_contact->get('sposob-oplaty')}</strong></h3>
         {/if}
         
         {if !empty($order.coupon)}

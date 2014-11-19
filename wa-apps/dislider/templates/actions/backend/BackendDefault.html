@@ -1,0 +1,222 @@
+{if isset($slider.id)}
+    <div id="top-bar">
+        <b>[`Code to Insert`]:</b> {literal}{$wa->dislider->showSlider('{/literal}{$slider.id}{literal}')}{/literal}
+            <div style="float: right;">
+                <a id="slide-add-link" rel="{$slider.id}" href="javascript:void(0)" class="bold no-underline">
+                    <i class="icon16 add"></i><strong>[`Add Image`]</strong>
+                </a>
+            </div>
+    </div>
+    <div id="drag-area">
+    {if isset($images) && count($images) gt 0}
+        <ul id="sort-slides" class="slides">
+            {foreach from=$images key=i item=s}
+                <li id="slide_{$s.id}" class="slides-sort">
+                    <form class="form-slide" id="form-slide-{$s.id}" rel="{$slider.id}" action="" method="post">
+                        <div class="form-slide-wrapper">
+                            <div class="slide-delete">
+                                <a class="slide-delete-link no-underline" rel="{$s.id}" href="javascript:void(0)">
+                                    <i class="icon16 delete"></i>
+                                </a>
+                            </div>
+                            <div class="slide-sort"><i class="icon16 sort"></i></div>
+                            <div class="form-slide-image">
+                                <a style="display: block; position: relative; text-align: center;" class="slide-preview" href="javascript:void(0)" rel="{$s.url}">
+                                    <i style="display: block; position: absolute; bottom: 0; right: 0;" class="icon16 search"></i>
+                                    <img src="{$s.thumb_url}" alt="{if !empty($s.source_name)}{$s.source_name}.{$s.ext}{/if}" />
+                                </a>
+                            </div>
+                            <div class="slide-fields">
+                                <div class="slide-field">
+                                    <div class="slide-name">[`Title`]</div>
+                                    <div class="slide-value">
+                                        <input class="slide-form-title" id="form-title-{$s.id}" name="title" value="{$s.title}" />
+                                        <input class="def-val" type="hidden" name="sh-title-{$s.id}" value="{$s.title|escape}" />
+                                    </div>
+                                </div>
+                                <div class="slide-field">
+                                    <div class="slide-name">[`Link`]</div>
+                                    <div class="slide-value">
+                                        <input class="slide-form-link" id="form-link-{$s.id}" name="link" value="{$s.link}" />
+                                        <input class="def-val" type="hidden" name="sh-link-{$s.id}" value="{$s.link|escape}" />
+                                    </div>
+                                </div>
+                                <div class="slide-field">
+                                    <div class="slide-name">[`Description`]</div>
+                                    <div class="slide-value">
+                                        <textarea class="slide-form-desc" id="form-desc-{$s.id}" name="description" cols="35" rows="4">{$s.description}</textarea>
+                                        <input class="def-val" type="hidden" name="sh-desc-{$s.id}" value="{$s.description|escape}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="slide-save-field">
+                            <div class="slide-save">
+                                <input type="hidden" name="sid" value="{$slider.id}" />
+                                <input type="hidden" name="ssid" value="{$s.id}" />
+                                <input type="submit" class="button green" value="[`Save`]" />
+                            </div>
+                            <div class="slide-filename">
+                                {if !empty($s.source_name)}{$s.source_name}.{$s.ext} &nbsp;&nbsp;{/if} (id: {$s.original})
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </form>
+                </li>
+            {/foreach}
+        </ul>
+    {else}
+        [`To add Slides in this Slider`]<br />
+        [`please use "Add Slide" button`]
+    {/if}
+    </div>
+{elseif isset($images) && count($images) gt 0}
+    <div id="top-bar">
+        <b>[`All Images`]</b>
+    </div>
+    <form style="padding:5px;" id="images-form" action="" method="post">
+        <ul class="thumbs">
+            {foreach from=$images key=i item=s}
+                <li id="li-image-{$s.id}">
+                    <div>
+                        <a title="{$s.name}.{$s.ext}" style="display: block; position: relative; text-align: center;" class="image-preview" href="javascript:void(0)" rel="{$s.preview_url}">
+                            <i style="display: block; position: absolute; bottom: 0; right: 0;" class="icon16 search"></i>
+                            <img src="{$s.thumb_url}" alt="{$s.name}.{$s.ext}" rel="{$s.width}x{$s.height}" />
+                        </a>
+                        <div>
+                            <input class="chk-images" id="chk-image-{$s.id}" name="images[]" value="{$s.id}" type="checkbox" />
+                            <span> id: {$s.id}</span>
+                        </div>
+                    </div>
+                </li>
+            {/foreach}
+        </ul>
+    </form>
+{else}
+    <div id="top-bar">
+        <b>[`All Images`]</b>
+    </div>
+    <div>
+    {if empty($images)}
+        [`To upload new images`]<br />
+        [`please use "Upload Images" button`]
+    {/if}
+    </div>
+{/if}
+<div class="dialog width500px" id="image-add-to-slider" style="display:none;">
+    <div class="dialog-background"></div>
+    <div class="dialog-window" style="height:270px;min-height:270px;">
+        <form id="upload-slide" method="post" enctype="multipart/form-data" >
+             <div class="dialog-content">
+                <div class="dialog-content-indent">
+                    <h1>[`Add Images in Slider`]</h1>
+                    <div id="s-input-file-block" class="block fields form">
+                        <div class="field-group">
+                            <div class="field">
+                                <div class="name">[`Images processing`]</div>
+                                <div class="value">
+                                    <select name="processing">
+                                        <option value="1"{if $settings.processing eq '1'} selected="selected"{/if}>[`Rectangle crop`]</option>
+                                        <option value="2"{if $settings.processing eq '2'} selected="selected"{/if}>[`Proportionally resizing`]</option>
+                                        <option value="3"{if $settings.processing eq '3'} selected="selected"{/if}>[`Not proportionally adjustment`]</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="name">[`Offset by Width`]</div>
+                                <div class="value">
+                                    <select name="processing_offset_width">
+                                        <option value="1"{if $settings.processing_offset_width eq '1'} selected="selected"{/if}>[`Left`]</option>
+                                        <option value="2"{if $settings.processing_offset_width eq '2'} selected="selected"{/if}>[`Center`]</option>
+                                        <option value="3"{if $settings.processing_offset_width eq '3'} selected="selected"{/if}>[`Right`]</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="name">[`Offset by Height`]</div>
+                                <div class="value">
+                                    <select name="processing_offset_height">
+                                        <option value="1"{if $settings.processing_offset_height eq '1'} selected="selected"{/if}>[`Top`]</option>
+                                        <option value="2"{if $settings.processing_offset_height eq '2'} selected="selected"{/if}>[`Middle`]</option>
+                                        <option value="3"{if $settings.processing_offset_height eq '3'} selected="selected"{/if}>[`Bottom`]</option>
+                                    </select>
+                                </div>
+                            </div>
+                            {if isset($slider.id)}
+                                <div class="field">
+                                    <div class="name">[`Select images`]</div>
+                                    <div class="value">
+                                        <input type="file" multiple="" name="files[]" id="s-input-file">
+                                    </div>
+                                </div>
+                            {else}
+                                <div class="field">
+                                    <div class="name">[`Select slider`]</div>
+                                    <div class="value">
+                                        {if isset($sliders)}
+                                            <select id="exist-sliders" name="slider_id">
+                                                {foreach from=$sliders key=j item=sl}
+                                                    <option value="{$sl.id}">{$sl.title} </option>
+                                                {/foreach}
+                                            </select>
+                                        {else}
+                                            [`You must create a Slider first`]
+                                        {/if}
+                                    </div>
+                                </div>
+                            {/if}
+                        </div>
+                    </div>
+                    <div id="s-status" style="display:none; margin-top: 15px;">
+                        <div class="progressbar blue" style="width:auto;">
+                            <div class="progressbar-outer">
+                                <div id="s-percent" style="position:absolute; top: 7px; left: 45%; font-size: 16px; z-index: 1;"></div>
+                                <div class="progressbar-inner" id="s-bar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <div id="s-result"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <div class="dialog-buttons-gradient">
+                    <input type="hidden" name="sid" value="{if isset($slider.id)}{$slider.id}{/if}" />
+                    <input type="submit" class="button green" value="[`Add`]" /> [`or`]
+                    <a href="javascript:void(0)" class="inline-link cancel"><b><i>[`cancel`]</i></b></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="dialog" id="image-add" style="display:none;">
+    <div class="dialog-background"></div>
+    <div class="dialog-window" style="width:350px;min-width:350px;height:180px;min-height:180px;">
+        <form id="upload-image" method="post" enctype="multipart/form-data" >
+            <div class="dialog-content">
+                <div class="dialog-content-indent">
+                    <h1>[`Add New Images`]</h1>
+                    <div id="i-input-file-block" class="value">
+                        <br /><br />
+                        <input type="file" multiple="" name="files[]" id="i-input-file">
+                    </div>
+                    <div id="i-status" style="display:none; margin-top: 15px;">
+                        <div class="progressbar blue" style="width:auto;">
+                            <div class="progressbar-outer">
+                                <div id="i-percent" style="position:absolute; top: 7px; left: 45%; font-size: 16px; z-index: 1;"></div>
+                                <div class="progressbar-inner" id="i-bar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <div id="i-result"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <div class="dialog-buttons-gradient">
+                    <input type="submit" class="button green" value="[`Upload`]" /> [`or`]
+                    <a href="javascript:void(0)" class="inline-link cancel"><b><i>[`cancel`]</i></b></a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

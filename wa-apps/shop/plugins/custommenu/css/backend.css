@@ -1,0 +1,52 @@
+/*.item-list .field-group:nth-child(2n+1) {
+   background: #000; 
+}
+.item-list .field-group:nth-child(2n+1) {
+   background: #555; 
+}
+*/
+
+.item-list .field{
+    clear: right;
+    float: left;
+    width: 265px;
+}
+.field-group {
+    clear: both;
+    margin: 0;
+    min-height: 40px;
+}
+.field-group .field-group {
+    margin: 0 0 0 50px;
+}
+.item-list .field .name {
+    width: 50px;
+}
+.item-list .field .value {
+    margin-left: 50px;
+}
+.first-column {
+    background: #e1e1e1;
+}
+.second-column {
+    background: #cccccc;
+}
+.third-column {
+    background: #bbbbbb;
+}
+.item-list .field-sort,
+.item-list .field-add,
+.item-list .field-delete {
+    width: 100px;
+}
+.item-list .field-type,
+.item-list .field-colunm {
+    width: 150px;
+}
+.item-list .field-sort .value input[type="text"] {
+    min-width: 30px;
+}
+
+.item-fields {
+    min-height: 30px;
+}

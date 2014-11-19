@@ -356,6 +356,12 @@ class shopProductsCollection
             }
             if ((empty($this->info['sort_products']) && !waRequest::get('sort')) || waRequest::get('sort') == 'sort') {
                 $this->order_by = $alias.'.sort ASC';
+                //##_## products with price 0 or count 0 insert to the end list
+                if( wa()->getEnv() == 'frontend') {
+                    $this->fields[] = 'IF (p.`count` = 0 || p.price = 0, 1000,'.$alias.'.sort ) AS sort';
+                    $this->order_by = 'sort ASC';
+                    $this->group_by = 'p.id';
+                }
             }
         } else {
             $hash = $this->hash;
