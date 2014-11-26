@@ -1,24 +1,28 @@
+RewriteEngine On
+RewriteCond %{QUERY_STRING} ^page=1(&(.*))?
+RewriteRule ^(.*)$ /$1?%2 [R=301,L]
+
+ErrorDocument 404 http://fonarik.ua/404    
+
 <FilesMatch "\.md5$">
     Deny from all
 </FilesMatch>
 
 DirectoryIndex index.php
-Options -Indexes
-# Comment the following line, if option Multiviews not allowed here
-Options -MultiViews
+
+
 
 AddDefaultCharset utf-8
+#Options -Indexes -MultiViews
+
+
+RewriteEngine On
+RewriteRule ^index(\/)?$ / [R=301,L]
 
 <ifModule mod_rewrite.c>
     RewriteEngine On
-    # Uncomment the following line, if you are having trouble
-    #RewriteBase /
 
-    RewriteCond %{QUERY_STRING} ^page=1(&|$) [NC]
-    RewriteRule ^(.*) /$1? [R=301,L] 
-    
-    RewriteCond %{REQUEST_URI} !\.(js|css|jpg|jpeg|gif|png)$ [or]
-    RewriteCond %{REQUEST_URI} apple-touch-icon\.png$
+    RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|png)$
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php [L,QSA]
@@ -33,3 +37,61 @@ AddDefaultCharset utf-8
 <IfModule mod_php5.c>
     php_value date.timezone "Europe/Kiev"
 </ifModule>
+
+
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.php\ HTTP/
+RewriteRule ^index\.php$ http://fonarik.ua/ [R=301,L]
+
+
+
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
+
+RewriteCond %{HTTP_HOST} ^www.fonarik.ua$ [NC]
+RewriteRule ^(.*)$ http://fonarik.ua/$1 [R=301,L]
+
+Redirect 301  /fonari/fonari-led-lenser/high-perfomance-line/fonar-led-lencer-seo-3/ http://fonarik.ua/fonari/fonari-led-lenser/high-perfomance-line/fonar-led-lenser-seo-3/
+Redirect 301  /fonari/fenix/fenix-e50-cree-xm-l-t6-neutral-white/ http://fonarik.ua/fonari/fonari-fenix/fenix-e50-cree-xm-l-t6-neutral-white/
+Redirect 301  /aksessuary_k_fonoryam/elementy-pitaniya/batareya-pitaniya-vartal-d-r20/reviews/ http://fonarik.ua/aksessuary_k_fonoryam/elementy-pitaniya/batareya-pitaniya-varta-d-r20/reviews/
+Redirect 301  /aksessuary_k_fonoryam/elementy-pitaniya/batareya-pitaniya-vartal-d-r20/reviews/ http://fonarik.ua/aksessuary_k_fonoryam/elementy-pitaniya/batareya-pitaniya-varta-d-r20/reviews/
+Redirect 301  /fonari/fenix/velofara-fenix-bt10-cree-xp-g-r5/ http://fonarik.ua/fonari/fonari-fenix/velofara-fenix-bt10-cree-xp-g-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-ld12-cree-xp-g-s2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-ld12-cree-xp-g-s2/
+Redirect 301  /fonari/fenix/fonar-fenix-ld41-cree-xm-l-u2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-ld41-cree-xm-l-u2/
+Redirect 301  /fonari/fenix/fonar-fenix-hl10-cree-xp-e/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-hl10-cree-xp-e/
+Redirect 301  /fonari/fenix/fonar-fenix-pd32-ultimate-edition-cree-xm-l-t6-neutral-white/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-pd32-ultimate-edition-cree-xm-l-t6-neutral-white/
+Redirect 301  /fonari/fenix/fonar-fenix-tk50-cree-xp-g-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk50-cree-xp-g-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-ld15-cree-xp-g-r4/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-ld15-cree-xp-g-r4/
+Redirect 301  /fonari/fenix/fonar-fenix-hl30-cree-xp-g-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-hl30-cree-xp-g-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-tk35-cree-xm-l-u2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk35-cree-xm-l-u2/
+Redirect 301  /fonari/fenix/fonar-fenix-ld01-cree-xp-e/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-ld01-cree-xp-e/
+Redirect 301  /fonari/fenix/fonar-fenix-pd32-cree-xp-g-s2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-pd32-cree-xp-g-s2/
+Redirect 301  /fonari/fenix/fonar-fenix-tk11-cree-xp-g-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk11-cree-xp-g-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-tk70-cree-xm-l/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk70-cree-xm-l/
+Redirect 301  /fonari/fenix/fonar-fenix-pd22-cree-xp-g-s2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-pd22-cree-xp-g-s2/
+Redirect 301  /fonari/fenix/fonar-fenix-rc10-cree-xp-g-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-rc10-cree-xp-g-r5/
+Redirect 301  /fonari/fenix/fenix-e01-nichia-white-gs/ http://fonarik.ua/fonari/fonari-fenix/fenix-e01-nichia-white-gs/
+Redirect 301  /fonari/fenix/ http://fonarik.ua/fonari/fonari-fenix/
+Redirect 301  /fonari/fenix/fonar-fenix-mc11-i-nagolovnoe-kreplenie/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-mc11-i-nagolovnoe-kreplenie/
+Redirect 301  /fonari/fenix/fenix-e15-cree-xp-e/ http://fonarik.ua/fonari/fonari-fenix/fenix-e15-cree-xp-e/
+Redirect 301  /fonari/fenix/fonar-fenix-ld22-cree-xp-g-s2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-ld22-cree-xp-g-s2/
+Redirect 301  /fonari/fenix/fenix-e05-cree-xp-e/ http://fonarik.ua/fonari/fonari-fenix/fenix-e05-cree-xp-e/
+Redirect 301  /fonari/fenix/fonar-fenix-tk45-cree-xp-g-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk45-cree-xp-g-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-hp11-cree-xp-g-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-hp11-cree-xp-g-r5/
+Redirect 301  /fonari/fenix/fenix-e40-cree-xp-e-r4/ http://fonarik.ua/fonari/fonari-fenix/fenix-e40-cree-xp-e-r4/
+Redirect 301  /fonari/fenix/fonar-fenix-tk60-cree-xm-l-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk60-cree-xm-l-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-ld22-cree-xp-g2-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-ld22-cree-xp-g2-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-ld12-cree-xp-g2-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-ld12-cree-xp-g2-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-pd32-cree-xp-g2-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-pd32-cree-xp-g2-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-pd22-cree-xp-g2-r5/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-pd22-cree-xp-g2-r5/
+Redirect 301  /fonari/fenix/fonar-fenix-tk22-cree-xm-l-u2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk22-cree-xm-l-u2/
+Redirect 301  /fonari/fenix/fonar-fenix-tk15-cree-xp-g-s2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk15-cree-xp-g-s2/
+Redirect 301  /fonari/fenix/fonar-fenix-hl21-cree-xp-e/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-hl21-cree-xp-e/
+Redirect 301  /fonari/fenix/fonar-fenix-tk41-cree-xm-l-u2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk41-cree-xm-l-u2/
+Redirect 301  /fonari/fenix/fonar-fenix-tk75-cree-xm-l-u2/ http://fonarik.ua/fonari/fonari-fenix/fonar-fenix-tk75-cree-xm-l-u2/
+Redirect 301  /fonari/fenix/?page=1 http://fonarik.ua/fonari/fonari-fenix/?page=1
+Redirect 301  /fonari/fenix/?page=2 http://fonarik.ua/fonari/fonari-fenix/?page=2
+Redirect 301  /multituly/ganzo/multi-tool-ganzo-g301-v/ http://fonarik.ua/multituly/ganzo/multi-tool-ganzo-g301-b/

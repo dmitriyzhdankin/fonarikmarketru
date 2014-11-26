@@ -54,6 +54,36 @@ class shopCustomPlugin extends shopPlugin {
         }
         return false;
     }
+
+    public static function getProductsFromOtherCategory() {
+        $plugin = self::getThisPlugin();
+        $product_model = new shopProductModel();
+        $product = $product_model->getByField('url', waRequest::param('product_url'));
+        if ( $product && $product['category_id']) {
+            $category_model = new shopCategoryModel();
+            $cat = $category_model->getById($product['category_id']);
+            while( $cat['parent_id'] > 0 ) {
+                $cat = $category_model->getById($cat['parent_id']);
+            }
+            switch( $cat['id'] ) {
+                case 47 : {$need_cat_id = 11; break; }//tochilki => nogi
+                case 11 : {$need_cat_id = 47; break; }//nogi => tochilki
+                case 1 : {$need_cat_id = 21; break; }//fonari => acsessuar k fonar
+                case 21 : {$need_cat_id = 1; break; }//acsessuar k fonar => fonari
+                case 14 : {$need_cat_id = 25; break; }//multitul => instrument
+                case 25 : {$need_cat_id = 14; break; }//instrument => multitul
+                case 34 : {$need_cat_id = 33; break; }//odegda => acsessuar
+                case 33 : {$need_cat_id = 34; break; }//acsessuar => odegda
+            }
+            $collection = new shopProductsCollection('category/'.$need_cat_id);
+            $collection->addWhere('((p.count <> 0 OR p.count is null) AND p.price <> 0 )')->orderBy('rand()');
+            $same_products = $collection->getProducts('*',10000);
+            if( $same_products ) {
+                return $same_products;
+            }
+        }
+        return false;
+    }
     
     public static function getProductCategory() {
         $plugin = self::getThisPlugin();
