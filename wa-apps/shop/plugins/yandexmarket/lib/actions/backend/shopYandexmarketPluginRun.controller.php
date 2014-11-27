@@ -1033,14 +1033,16 @@ XML;
                         if (!$currency_model) {
                             $currency_model = new shopCurrencyModel();
                         }
-                        $value = $currency_model->convert($value, $this->data['primary_currency'], $data['currency']);
+                        //##_## Convert all price to UAH
+                        //$value = $currency_model->convert($value, $this->data['primary_currency'], $data['currency']);
                     }
                 }
                 break;
             case 'currencyId':
-                if (!in_array($value, $this->data['currency'])) {
+                //##_## Convert all price to UAH
+                //if (!in_array($value, $this->data['currency'])) {
                     $value = $this->data['primary_currency'];
-                }
+                //}
                 break;
             case 'rate':
                 $info['format'] = '%0.2f';
