@@ -78,7 +78,7 @@ class shopCustomPlugin extends shopPlugin {
         $product_model = new shopProductModel();
         $options = array(
             'limit'=> $limit,
-            'where' => array('parent_id' => 0),
+            'where' => array('parent_id' => 0, 'status' => 'approved'),
             'offset' => intval($page) ? (intval($page) - 1) * $limit : 0
         );
         $parent_reviews = $reviews_model->getList('*,is_new,contact,product',$options);
@@ -87,7 +87,7 @@ class shopCustomPlugin extends shopPlugin {
         foreach( $parent_reviews as &$review ) {
             $options = array(
                 'limit'=> 1,
-                'where' => array('review_id' => $review['id'])
+                'where' => array('parent_id' => $review['id'], 'status' => 'approved')
             );
             $review['child_review'] = $reviews_model->getList('*,is_new,contact,product',$options);
 
